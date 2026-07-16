@@ -97,9 +97,9 @@ header .container {
   object-fit: contain;
 }
 
-/* Adjust logo filter for light theme if it was white */
+/* Adjust logo size */
 header.scrolled .logo img {
-  filter: brightness(0);
+  height: 40px;
 }
 
 nav ul {
@@ -509,7 +509,6 @@ footer {
 footer .footer-logo {
   height: 50px;
   margin-bottom: 20px;
-  filter: brightness(0) invert(1);
 }
 
 footer p {
