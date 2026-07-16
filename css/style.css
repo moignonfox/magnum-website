@@ -34,35 +34,6 @@ body {
   overflow-x: hidden;
 }
 
-body.no-scroll {
-  overflow: hidden;
-}
-
-/* Preloader */
-.preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: #000;
-  z-index: 9999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: opacity 0.8s ease, visibility 0.8s ease;
-}
-
-.preloader.hidden {
-  opacity: 0;
-  visibility: hidden;
-}
-
-#preloader-video {
-  max-width: 80%;
-  max-height: 80%;
-}
-
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
   line-height: 1.2;
