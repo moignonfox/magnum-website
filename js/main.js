@@ -1,4 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    // Preloader Logic
+    const preloader = document.getElementById('preloader');
+    const preloaderVideo = document.getElementById('preloader-video');
+    
+    // Fallback if video fails to load or play
+    let preloaderTimeout = setTimeout(() => {
+        hidePreloader();
+    }, 5000); // 5 seconds max
+
+    function hidePreloader() {
+        if (preloader && !preloader.classList.contains('hidden')) {
+            preloader.classList.add('hidden');
+            document.body.classList.remove('no-scroll');
+            clearTimeout(preloaderTimeout);
+        }
+    }
+
+    if (preloaderVideo) {
+        preloaderVideo.addEventListener('ended', hidePreloader);
+        // Sometimes mobile browsers block autoplay, triggering an error
+        preloaderVideo.addEventListener('error', hidePreloader);
+        
+        // Ensure video plays
+        preloaderVideo.play().catch(() => {
+            // If autoplay is blocked
+            hidePreloader();
+        });
+    } else {
+        hidePreloader();
+    }
+
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
