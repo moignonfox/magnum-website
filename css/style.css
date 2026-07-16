@@ -133,6 +133,39 @@ nav a:hover {
   color: var(--color-primary) !important;
 }
 
+/* Mobile Toggle */
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 1000;
+  margin-left: 15px;
+}
+.mobile-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+header.scrolled .mobile-toggle span {
+  background-color: var(--color-text);
+}
+
+.mobile-toggle.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.mobile-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.mobile-toggle.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
 .btn-primary {
   display: inline-block;
   background: var(--color-primary);
@@ -1137,17 +1170,56 @@ footer p {
   .price-card.featured:hover {
     transform: translateY(-5px);
   }
+  /* Show hamburger */
+  .mobile-toggle {
+    display: flex;
+  }
+  
+  /* Mobile dropdown menu */
   nav {
-    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    padding: 30px 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-top: 1px solid var(--color-border);
+    transform: translateY(-150%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease;
   }
+  
+  nav.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+  
+  nav a {
+    color: var(--color-text) !important;
+    font-size: 1.2rem;
+  }
+  
+  /* Header button and logo adjustments */
   header .btn-primary {
-    padding: 8px 15px;
+    padding: 8px 16px;
     font-size: 0.85rem;
+    margin-left: auto; /* Push it to the right, next to toggle */
   }
+  
   header .logo img {
-    height: 32px;
+    height: 30px;
   }
   header.scrolled .logo img {
-    height: 32px;
+    height: 30px;
   }
 }
