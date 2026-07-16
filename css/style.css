@@ -1173,6 +1173,8 @@ footer p {
   /* Show hamburger */
   .mobile-toggle {
     display: flex;
+    order: 3;
+    margin-left: 15px;
   }
   
   /* Mobile dropdown menu */
@@ -1214,6 +1216,7 @@ footer p {
     padding: 8px 16px;
     font-size: 0.85rem;
     margin-left: auto; /* Push it to the right, next to toggle */
+    order: 2;
   }
   
   header .logo img {
